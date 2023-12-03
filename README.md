@@ -16,8 +16,6 @@ This project is a modern implementation of the classic Snake game, developed usi
 - **Libraries**: AWT for graphics and event handling, Swing for GUI components
 - **IDE**: Developed and tested in [Your IDE, e.g., Eclipse, IntelliJ IDEA]
 
-## How to Run
-Instructions on how to compile and run the game, including any required JDK version.
 
 ## Future Enhancements
 - Add difficulty levels (e.g., increasing speed).
