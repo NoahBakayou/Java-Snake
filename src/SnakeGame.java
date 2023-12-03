@@ -86,9 +86,27 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
             g.drawString("Score: " + String.valueOf(snakeBody.size()), tileSize -16, tileSize);
         }
     }
-    public void placeFood(){
-        food.x = random.nextInt(boardWidth/tileSize);
-        food.y = random.nextInt(boardHeight/tileSize);
+    public void placeFood() {
+        boolean foodPlaced;
+        do {
+            foodPlaced = true;
+            food.x = random.nextInt(boardWidth / tileSize);
+            food.y = random.nextInt(boardHeight / tileSize);
+
+            // Check if food is on the snake head
+            if (collision(food, snakeHead)) {
+                foodPlaced = false;
+                continue;
+            }
+
+            // Check if food is on the snake body
+            for (Tile snakePart : snakeBody) {
+                if (collision(food, snakePart)) {
+                    foodPlaced = false;
+                    break;
+                }
+            }
+        } while (!foodPlaced); // Repeat until food is placed on an empty spot
     }
 
     public boolean collision(Tile tile1, Tile tile2){
